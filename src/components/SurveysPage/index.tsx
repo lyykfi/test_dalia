@@ -6,9 +6,9 @@ import "antd/dist/antd.css";
  * A component with surveys page data.
  * @param props - A props for component.
  */
-const SurveysPage: FunctionComponent<{}> = (props) => {
+const SurveysPage: FunctionComponent<{}> = () => {
   return (
-    <div>test</div>
+    <SurveyListContainer />
   );
 };
 

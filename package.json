@@ -9,11 +9,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
     "@typescript-eslint/parser": "^2.0.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "css-loader": "^3.2.0",
     "eslint": "^6.1.0",
     "eslint-plugin-react": "^7.14.3",
@@ -29,11 +31,13 @@
   "dependencies": {
     "@types/react": "^16.9.1",
     "@types/react-dom": "^16.8.5",
+    "@types/react-redux": "^7.1.1",
     "@types/react-router-dom": "^4.3.4",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "antd": "^3.21.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.4",
     "redux-saga": "^1.0.5"
