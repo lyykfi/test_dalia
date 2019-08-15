@@ -1,4 +1,6 @@
 import React, { FunctionComponent } from "react";
+import SurveyListContainer from "components/SurveyList/container";
+import Layout from "components/Layout";
 
 import "antd/dist/antd.css";
 
@@ -8,7 +10,9 @@ import "antd/dist/antd.css";
  */
 const SurveysPage: FunctionComponent<{}> = () => {
   return (
-    <SurveyListContainer />
+    <Layout>
+      <SurveyListContainer />
+    </Layout>
   );
 };
 

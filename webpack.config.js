@@ -5,6 +5,7 @@ module.exports = {
     entry: './src/index',
     output: {
         path: path.resolve(__dirname, 'dist'),
+        publicPath: '/',
         filename: 'app.bundle.js'
     },
     resolve: {
@@ -53,5 +54,6 @@ module.exports = {
     devServer: {
       hot: true,
       host: '0.0.0.0',
+      historyApiFallback: true,
     }
 };

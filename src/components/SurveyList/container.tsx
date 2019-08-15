@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchSurveyList } from "actions/surveys"; 
+import SurveyList from ".";
 
 /**
  * A component with a list of survey.
@@ -8,16 +9,16 @@ import { fetchSurveyList } from "actions/surveys";
  */
 const SurveyListContainer: FunctionComponent<{}> = () => {
   const dispatch = useDispatch();
-  const surveyList = useSelector((state: any) => {
-    return state.counter;
-  });
+  const surveyList = useSelector((state: any) => state.surveys.surveyList);
+  const isFetching = useSelector((state: any) => state.surveys.isFetching);
 
-  if (!surveyList) {
+  // fetch a list.
+  if (!surveyList && !isFetching) {
     dispatch(fetchSurveyList());
   }
 
   return (
-    <div>test2</div>
+    <SurveyList surveyList={surveyList} />
   );
 };
 

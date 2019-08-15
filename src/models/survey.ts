@@ -1,7 +1,7 @@
 /**
  * @todo add comment
  */
-export interface SurveyListItem {
+export interface ISurveyListItem {
     id: number;
     title: string;
     tagline: string;

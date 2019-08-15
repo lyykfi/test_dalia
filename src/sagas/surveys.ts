@@ -1,6 +1,5 @@
 import { takeEvery, call, put } from "@redux-saga/core/effects";
 import { CONFIG } from "data/config";
-import { SurveyListItem } from "models/survey";
 import { FETCH_SURVEY_LIST, SURVEY_LIST_RECIEVED, SURVEY_LIST_FAILED } from "consts/surveys";
 
 /**
@@ -12,7 +11,7 @@ function* getSurveyList() {
             mode: 'cors',
         }).then(res => { return res.json(); }));
 
-        yield put({ type: SURVEY_LIST_RECIEVED, payload: data, });
+        yield put({ type: SURVEY_LIST_RECIEVED, payload: data.surveys, });
     } catch (e) {
         console.log(e);
         yield put({ type: SURVEY_LIST_FAILED, payload: e, });
