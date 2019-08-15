@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "noEmit": true,
     "allowJs": true,
     "baseUrl": "./src",
     "rootDir": "./src",
@@ -14,5 +15,9 @@
     "moduleResolution": "node",
     "target": "es6",
     "lib": ["es7", "dom"]
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
