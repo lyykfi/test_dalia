@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchSurveyList } from "actions/surveys"; 
 import SurveyList from ".";
+import Loader from "components/Loader";
 
 /**
  * A component with a list of survey.
@@ -18,7 +19,7 @@ const SurveyListContainer: FunctionComponent<{}> = () => {
   }
 
   return (
-    <SurveyList surveyList={surveyList} />
+    isFetching ? <Loader /> : <SurveyList surveyList={surveyList} />
   );
 };
 
