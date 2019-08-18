@@ -41,6 +41,7 @@ export const updateSelectedOptions = (newSelectedOptions: { [key: string]: strin
  */
 export const createSurveyCompletion = (surveyId: string, selectedOptions: { [key: string]: string }): any => {
   const response = {completion: []};
+
   Object.keys(selectedOptions).forEach((key) => {
     (response.completion as any).push({"question_id": key, value: selectedOptions[key]});
   });
