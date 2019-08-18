@@ -8,15 +8,15 @@ module.exports = {
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
   coverageThreshold: {
     "global": {
-      "lines": 50,
-      "statements": 50
+      "lines": 45,
+      "statements": 45
     }
   },
   collectCoverageFrom: [
     "src/**/*.{ts,tsx}"
   ],
   transform: {
-    "^.+\\.(tsx|ts)?$": "babel-jest",
+    "^.+\\.(tsx|ts|js)?$": "babel-jest",
   },
   moduleDirectories: [
     "node_modules",
@@ -25,5 +25,5 @@ module.exports = {
   moduleNameMapper: {
     "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
   },
-  setupFilesAfterEnv: ["<rootDir>src/enzume.config.js"]
+  setupFilesAfterEnv: ["<rootDir>/enzume.config.js"]
 };
