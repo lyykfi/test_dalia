@@ -19,7 +19,7 @@ const SurveyInfoSuccess: FunctionComponent<IProps> = (props) => {
     return (
         <>
             <Typography.Title>{surveyInfo.title}</Typography.Title>
-            <Typography.Paragraph>You successfull finished this survey. Thank you a lot.</Typography.Paragraph>
+            <Typography.Paragraph>You successfull finished this survey. Thanks for answering the survey!</Typography.Paragraph>
         </>
     );
 };

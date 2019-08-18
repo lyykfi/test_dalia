@@ -8,7 +8,7 @@ import {
 /**
  * Init state for a user account.
  */
-const initState = {
+export const initState = {
     isFetching: false,
     isSuccess: false,
     error: null,
@@ -24,7 +24,7 @@ export enum RESPONSE_STATUSES {
 /**
  * Surveys reducer.
  */
-function surveysInfo(state = initState, action: any) {
+function surveysCompletion(state = initState, action: any) {
     switch (action.type) {
         case CREATE_SURVEY_COMPLETION:
             return Object.assign({}, state, {
@@ -55,4 +55,4 @@ function surveysInfo(state = initState, action: any) {
     }
 }
 
-export default surveysInfo;
+export default surveysCompletion;

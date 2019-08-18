@@ -5,7 +5,7 @@ import {
 /**
  * Init state for a user account.
  */
-const initState = {
+export const initState = {
     surveyList: null,
     isFetching: false,
     surveyListError: null,

@@ -1,12 +1,13 @@
 import {
-    SURVEY_INFO_RECIEVED, FETCH_SURVEY_INFO, SURVEY_LIST_FAILED, 
+    SURVEY_INFO_RECIEVED, FETCH_SURVEY_INFO, 
     UPDATE_SELECTED_OPTIONS,
+    SURVEY_INFO_FAILED,
 } from "consts/surveys";
 
 /**
  * Init state for a user account.
  */
-const initState = {
+export const initState = {
     surveyInfo: null,
     selectedOptions: {},
     error: null,
@@ -31,7 +32,7 @@ function surveysInfo(state = initState, action: any) {
                 isFetching: false,
                 surveyInfo: action.payload,
             });
-        case SURVEY_LIST_FAILED:
+        case SURVEY_INFO_FAILED:
             return Object.assign({}, state, {
                 isFetching: false,
                 error: action.payload,

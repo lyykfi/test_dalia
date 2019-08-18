@@ -5,12 +5,11 @@ const { Header, Content } = AntLayout;
 
 import "./style.less";
 
-
 /**
  * A component with layout.
  * @param props - A props for component.
  */
-const Layout: FunctionComponent<IProps> = (props) => {
+const Layout: FunctionComponent<{}> = (props) => {
   return (
     <AntLayout className="layout">
         <Header></Header>
