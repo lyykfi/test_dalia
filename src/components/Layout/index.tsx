@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { Layout as AntLayout } from 'antd';
 
-import "./style.less";
-
 const { Header, Content } = AntLayout;
+
+import "./style.less";
 
 /**
  * A component with layout.
@@ -12,9 +12,7 @@ const { Header, Content } = AntLayout;
 const Layout: FunctionComponent<{}> = (props) => {
   return (
     <AntLayout className="layout">
-        <Header>
-            header
-        </Header>
+        <Header></Header>
         <Content className="content">
             {props.children}
         </Content>

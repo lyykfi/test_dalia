@@ -1,5 +1,5 @@
 /**
- * @todo add comment
+ * A survey list item interface.
  */
 export interface ISurveyListItem {
     id: string;
@@ -8,7 +8,7 @@ export interface ISurveyListItem {
 }
 
 /**
- * @todo add comment
+ * A survey question interface.
  */
 export interface ISurveyQuestion {
     id: string;
@@ -17,14 +17,14 @@ export interface ISurveyQuestion {
 }
 
 /**
- * @todo add comment
+ * A survey info interface.
  */
 export interface ISurveyInfo extends ISurveyListItem {
     questions: ISurveyQuestion[];
 }
 
 /**
- * @todo add comment
+ * A survey response interface.
  */
 export interface ISurveyResponse {
     question_id: string;

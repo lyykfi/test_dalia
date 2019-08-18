@@ -23,7 +23,8 @@ export const fetchSurveyInfo = (surveyId: string) => {
 }
 
 /**
- * An action for fetching survey info.
+ * An action for updating selected options.
+ * @param newSelectedOptions - An object with selected objects.
  */
 export const updateSelectedOptions = (newSelectedOptions: { [key: string]: string; }) => {
   return {
@@ -33,8 +34,9 @@ export const updateSelectedOptions = (newSelectedOptions: { [key: string]: strin
 }
 
 /**
- * @todo add comment
- * @param response @
+ * An action for creating survey completion.
+ * @param surveyId - Id of survey.
+ * @param selectedOptions - An object with selected options.
  */
 export const createSurveyCompletion = (surveyId: string, selectedOptions: { [key: string]: string; }) => {
   const response = {completion: []};
@@ -49,8 +51,7 @@ export const createSurveyCompletion = (surveyId: string, selectedOptions: { [key
 }
 
 /**
- * @todo add comment
- * @param response @
+ * An action for clearing survey completion state.
  */
 export const clearSurveyCompletion = () => {
   return {
