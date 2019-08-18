@@ -5,8 +5,8 @@
   "author": "Andrei Makar-Uvarov <lyykfi@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack  --progress --mode production",
-    "start": "webpack-dev-server",
+    "build": "webpack  --progress --mode production --config webpack.prod.js",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
     "lint": "eslint ./src/**/*.tsx ./src/**/*.ts",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -38,7 +38,8 @@
     "typescript": "^3.5.3",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.8.0"
+    "webpack-dev-server": "^3.8.0",
+    "webpack-merge": "^4.2.1"
   },
   "dependencies": {
     "@types/react": "^16.9.1",
