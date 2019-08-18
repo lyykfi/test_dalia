@@ -1,6 +1,8 @@
-import React, { FunctionComponent, useCallback, useEffect } from "react";
+import React, { FunctionComponent, useCallback } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchSurveyInfo, updateSelectedOptions, createSurveyCompletion, clearSurveyCompletion } from "actions/surveys";
+import {
+    fetchSurveyInfo, updateSelectedOptions, 
+    createSurveyCompletion, clearSurveyCompletion } from "actions/surveys";
 import SurveyInfo from ".";
 import Loader from "components/Loader";
 import SurveyInfoSuccess from "./Success";
