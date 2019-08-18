@@ -8,7 +8,7 @@ import SurveyInfoQuestions from "./Questions";
  */
 interface IProps {
     surveyInfo: ISurveyInfo;
-    selectedOptions: { [key: string]: string; };
+    selectedOptions: { [key: string]: string };
     onChangeSelectedOptions: Function;
     onSurveyComplete: Function;
 }

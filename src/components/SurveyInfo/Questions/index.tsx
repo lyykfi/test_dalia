@@ -6,9 +6,9 @@ import SurveyInfoQuestionItem from "./QuestionItem";
  * The component props.
  */
 interface IProps {
-  questions: ISurveyQuestion[];
-  selectedOptions: { [key: string]: string; };
-  onChangeSelectedOptions: Function;
+    questions: ISurveyQuestion[];
+    selectedOptions: { [key: string]: string };
+    onChangeSelectedOptions: Function;
 }
 
 /**
@@ -18,11 +18,11 @@ interface IProps {
  * @param onChangeSelectedOptions - A function for update selected options.
  * @param selectedOptions - An object with selected options.
  */
-function onOptionChanged(questionId: string, value: string, onChangeSelectedOptions: Function, selectedOptions: { [key: string]: string; }) {
-  selectedOptions = Object.assign({}, selectedOptions);
-  selectedOptions[questionId] = value;
+function onOptionChanged(questionId: string, value: string, onChangeSelectedOptions: Function, selectedOptions: { [key: string]: string }): void {
+    selectedOptions = Object.assign({}, selectedOptions);
+    selectedOptions[questionId] = value;
 
-  onChangeSelectedOptions(selectedOptions);
+    onChangeSelectedOptions(selectedOptions);
 }
 
 /**
@@ -31,17 +31,17 @@ function onOptionChanged(questionId: string, value: string, onChangeSelectedOpti
  * @returns A list SurveyInfoQuestionItem components.
  */
 function getSurveyInfoQuestionItems(questions: ISurveyQuestion[], onChangeSelectedOptions: Function, selectedOptions: any) {
-  const onOptionChangedCallback = useCallback((key, value) => {
-    onOptionChanged(key, value, onChangeSelectedOptions, selectedOptions);
-  }, [onChangeSelectedOptions, selectedOptions]);
+    const onOptionChangedCallback = useCallback((key, value) => {
+        onOptionChanged(key, value, onChangeSelectedOptions, selectedOptions);
+    }, [onChangeSelectedOptions, selectedOptions]);
 
-  return questions.map((item) => {
-    return <SurveyInfoQuestionItem
-      selectedOption={selectedOptions[item.id]}
-      key={item.id}
-      question={item}
-      onChangeItem={onOptionChangedCallback} />;
-  });
+    return questions.map((item) => {
+        return <SurveyInfoQuestionItem
+            selectedOption={selectedOptions[item.id]}
+            key={item.id}
+            question={item}
+            onChangeItem={onOptionChangedCallback} />;
+    });
 }
 
 /**
@@ -49,13 +49,13 @@ function getSurveyInfoQuestionItems(questions: ISurveyQuestion[], onChangeSelect
  * @param props - A props for component.
  */
 const SurveyInfoQuestions: FunctionComponent<IProps> = (props) => {
-  const { questions, selectedOptions, onChangeSelectedOptions } = props;
+    const { questions, selectedOptions, onChangeSelectedOptions } = props;
 
-  return (
-    <>
-      {getSurveyInfoQuestionItems(questions, onChangeSelectedOptions, selectedOptions)}
-    </>
-  );
+    return (
+        <>
+            {getSurveyInfoQuestionItems(questions, onChangeSelectedOptions, selectedOptions)}
+        </>
+    );
 };
 
 export default SurveyInfoQuestions;
