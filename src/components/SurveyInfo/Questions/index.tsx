@@ -1,20 +1,28 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useCallback } from "react";
 import { ISurveyQuestion } from "models/survey";
 import SurveyInfoQuestionItem from "./QuestionItem";
-import { Button } from "antd";
-import { useDispatch, useSelector } from "react-redux";
-import { updateSelectedOption } from "actions/surveys";
-import { Dispatch } from "redux";
 
 /**
  * The component props.
  */
 interface IProps {
   questions: ISurveyQuestion[];
+  selectedOptions: { [key: string]: string; };
+  onChangeSelectedOptions: Function;
 }
 
-function onOptionChanged(dispatch: Dispatch, questionId: string, value: string) {
-  dispatch(updateSelectedOption(questionId, value));
+/**
+ * Updates selected options.
+ * @param questionId - A string with question id.
+ * @param value - A new value for certain question.
+ * @param onChangeSelectedOptions - A function for update selected options.
+ * @param selectedOptions - An object with selected options.
+ */
+function onOptionChanged(questionId: string, value: string, onChangeSelectedOptions: Function, selectedOptions: { [key: string]: string; }) {
+  selectedOptions = Object.assign({}, selectedOptions);
+  selectedOptions[questionId] = value;
+
+  onChangeSelectedOptions(selectedOptions);
 }
 
 /**
@@ -22,13 +30,17 @@ function onOptionChanged(dispatch: Dispatch, questionId: string, value: string) 
  * @param questions - A list with ISurveyQuestion instances.
  * @returns A list SurveyInfoQuestionItem components.
  */
-function getSurveyInfoQuestionItems(questions: ISurveyQuestion[], dispatch: Dispatch, selectedOptions: any) {
+function getSurveyInfoQuestionItems(questions: ISurveyQuestion[], onChangeSelectedOptions: Function, selectedOptions: any) {
+  const onOptionChangedCallback = useCallback((key, value) => {
+    onOptionChanged(key, value, onChangeSelectedOptions, selectedOptions);
+  }, [onChangeSelectedOptions, selectedOptions]);
+
   return questions.map((item) => {
     return <SurveyInfoQuestionItem
       selectedOption={selectedOptions[item.id]}
       key={item.id}
       question={item}
-      onChangeItem={onOptionChanged.bind({}, dispatch)} />;
+      onChangeItem={onOptionChangedCallback} />;
   });
 }
 
@@ -37,15 +49,11 @@ function getSurveyInfoQuestionItems(questions: ISurveyQuestion[], dispatch: Disp
  * @param props - A props for component.
  */
 const SurveyInfoQuestions: FunctionComponent<IProps> = (props) => {
-  const { questions } = props;
-
-  const dispatch = useDispatch();
-  const selectedOptions = useSelector((state: any) => state.surveysInfo.selectedOptions);
+  const { questions, selectedOptions, onChangeSelectedOptions } = props;
 
   return (
     <>
-      {getSurveyInfoQuestionItems(questions, dispatch, selectedOptions)}
-      <Button type="primary">Done</Button>
+      {getSurveyInfoQuestionItems(questions, onChangeSelectedOptions, selectedOptions)}
     </>
   );
 };

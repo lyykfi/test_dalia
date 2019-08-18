@@ -22,3 +22,11 @@ export interface ISurveyQuestion {
 export interface ISurveyInfo extends ISurveyListItem {
     questions: ISurveyQuestion[];
 }
+
+/**
+ * @todo add comment
+ */
+export interface ISurveyResponse {
+    question_id: string;
+    value: string;
+}

@@ -1,13 +1,16 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useCallback } from "react";
 import { ISurveyInfo } from "models/survey";
-import { Typography } from 'antd';
+import { Typography, Button } from 'antd';
 import SurveyInfoQuestions from "./Questions";
 
 /**
  * The component props.
  */
 interface IProps {
-  surveyInfo: ISurveyInfo;
+    surveyInfo: ISurveyInfo;
+    selectedOptions: { [key: string]: string; };
+    onChangeSelectedOptions: Function;
+    onSurveyComplete: Function;
 }
 
 /**
@@ -15,15 +18,26 @@ interface IProps {
  * @param props - A props for component.
  */
 const SurveyInfo: FunctionComponent<IProps> = (props) => {
-  const { surveyInfo } = props;
+    const {
+        surveyInfo, selectedOptions, 
+        onChangeSelectedOptions, onSurveyComplete } = props;
 
-  return (
-    <>
-        <Typography.Title>{surveyInfo.title}</Typography.Title>
-        <Typography.Paragraph>{surveyInfo.tagline}</Typography.Paragraph>
-        <SurveyInfoQuestions questions={surveyInfo.questions}></SurveyInfoQuestions>
-    </>
-  );
+    // on click callback.
+    const callbackOnClick = useCallback(() => {
+        onSurveyComplete(selectedOptions);
+    }, [selectedOptions]);
+
+    return (
+        <>
+            <Typography.Title>{surveyInfo.title}</Typography.Title>
+            <Typography.Paragraph>{surveyInfo.tagline}</Typography.Paragraph>
+            <SurveyInfoQuestions
+                questions={surveyInfo.questions}
+                selectedOptions={selectedOptions}
+                onChangeSelectedOptions={onChangeSelectedOptions}></SurveyInfoQuestions>
+            <Button type="primary" onClick={callbackOnClick}>Done</Button>
+        </>
+    );
 };
 
 export default SurveyInfo;
