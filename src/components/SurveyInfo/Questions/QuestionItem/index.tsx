@@ -13,6 +13,11 @@ interface IProps {
     selectedOption: string | null;
 }
 
+/**
+ * Gets options radio buttons.
+ * @param options - A list with options.
+ * @param selectedOption - A string with selected option.
+ */
 function getOptions(options: string[], selectedOption: string | null) {
     const items = options.map((item, key) => {
         return <Radio.Button value={item} key={key}>{item}</Radio.Button>
@@ -21,6 +26,12 @@ function getOptions(options: string[], selectedOption: string | null) {
     return <Radio.Group defaultValue={selectedOption}>{items}</Radio.Group>
 }
 
+/**
+ * Changes selected option.
+ * @param id - A string with id of question
+ * @param onChangeItem - A function for changing value.
+ * @param e - SyntheticEvent click.
+ */
 function onChange(id: string, onChangeItem: Function, e: any) {
     onChangeItem(id, e.target.value);
 }
