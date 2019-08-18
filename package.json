@@ -5,7 +5,7 @@
   "author": "Andrei Makar-Uvarov <lyykfi@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack  --progress --mode production",
     "start": "webpack-dev-server",
     "lint": "eslint ./src/**/*.tsx ./src/**/*.ts",
     "test": "jest",
